@@ -1,16 +1,24 @@
 package tp5.ejercicio3.modelo;
 
-public class Ingredientes implements ComidaRapida {
+public class Ingredientes implements ComidaRapida { // preguntar si puedo sustituir los ingredientes con solo esta clase
 
-	private double precio;
-	private String descripcion;
+	// private double precio;
+	// protected String descripcion;
 
-	private ComidaRapida comida;
+	protected ComidaRapida comida;
+
+	public Ingredientes(ComidaRapida comida) {
+
+		this.comida = comida;
+		// this.descripcion = descripcion;
+
+	}
 
 	@Override
 	public String detalle() {
-		// TODO Auto-generated method stub
-		return descripcion + precio;
+
+		return this.comida.detalle();
+
 	}
 
 }

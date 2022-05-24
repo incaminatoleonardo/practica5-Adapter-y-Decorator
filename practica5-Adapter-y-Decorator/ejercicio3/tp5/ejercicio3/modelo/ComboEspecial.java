@@ -1,13 +1,13 @@
 package tp5.ejercicio3.modelo;
 
-public class ComboBasico implements ComidaRapida {
+public class ComboEspecial implements ComidaRapida {
 
-	private final double precio = 10;
-	private final String descripcion = "Hamburguesa completa: ";
+	private final double precio = 18;
+	private final String descripcion = "Hamburguesa Completa con papas y gaseosa: ";
 
 //	private ComidaRapida comida;
 //
-//	public ComboBasico(ComidaRapida comida) {
+//	public ComboEspecial(ComidaRapida comida) {
 //		super();
 //		this.comida = comida;
 //
@@ -19,5 +19,4 @@ public class ComboBasico implements ComidaRapida {
 		return descripcion + precio + System.lineSeparator();
 
 	}
-
 }

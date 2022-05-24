@@ -1,13 +1,13 @@
 package tp5.ejercicio3.modelo;
 
-public class ComboBasico implements ComidaRapida {
+public class ComboFamiliar implements ComidaRapida {
 
-	private final double precio = 10;
-	private final String descripcion = "Hamburguesa completa: ";
+	private final double precio = 15;
+	private final String descripcion = "Hamburguesa Completa con papas: ";
 
 //	private ComidaRapida comida;
 //
-//	public ComboBasico(ComidaRapida comida) {
+//	public ComboFamiliar(ComidaRapida comida) {
 //		super();
 //		this.comida = comida;
 //

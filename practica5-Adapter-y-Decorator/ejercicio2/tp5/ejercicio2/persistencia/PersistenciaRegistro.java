@@ -1,4 +1,4 @@
-package tp5.ejercicio2.percistencia;
+package tp5.ejercicio2.persistencia;
 
 import java.io.File;
 import java.io.IOException;
@@ -75,16 +75,6 @@ public class PersistenciaRegistro implements PersistenciaReporte {
 			Files.deleteIfExists(file.toPath());
 		} catch (IOException e) {
 			throw new RuntimeException("No se pudo borrar el archivo");
-		}
-
-	}
-
-	public void exportarSiNoExiste(File file, String registro) {
-
-		if (!file.exists()) {
-			crearArchivo(file);
-			exportarArchivo(registro);
-
 		}
 
 	}

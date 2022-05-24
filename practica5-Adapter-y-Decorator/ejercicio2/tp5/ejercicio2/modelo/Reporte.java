@@ -12,12 +12,13 @@ public class Reporte implements Exportar {
 		this.persistencia = percictencia;
 	}
 
-	public void export(File file) {
+	public void export(File file) { // este solo exporta y es el que inyecta la persistencia- los otros dos
+									// verifican si es null y si existe-- SOLO ESO!!!
 
-//		persistencia.exportar(file, reporte);
-		if (file == null) {
-			throw new IllegalArgumentException("File es NULL; no puedo exportar...");
-		}
+		persistencia.exportar(file, reporte);
+//		if (file == null) {
+//			throw new IllegalArgumentException("File es NULL; no puedo exportar...");
+//		}
 //		if (file.exists()) {
 //			throw new IllegalArgumentException("El archivo ya existe...");
 //		}
@@ -35,6 +36,11 @@ public class Reporte implements Exportar {
 	public String reporte() {
 
 		return reporte;
+	}
+
+	public void yaExiste() {
+		reporte = "Ya existe";
+
 	}
 
 }

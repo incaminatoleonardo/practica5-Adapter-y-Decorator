@@ -10,7 +10,7 @@ import tp5.ejercicio2.modelo.Exportar;
 import tp5.ejercicio2.modelo.Reporte;
 import tp5.ejercicio2.modelo.SinVerificar;
 import tp5.ejercicio2.modelo.VerificarSiExiste;
-import tp5.ejercicio2.percistencia.PersistenciaRegistro;
+import tp5.ejercicio2.persistencia.PersistenciaRegistro;
 
 class TestEjercicio2 {
 
@@ -23,14 +23,22 @@ class TestEjercicio2 {
 		PersistenciaRegistro accesoDatos = new PersistenciaRegistro();
 
 		Exportar registroVerificado = new VerificarSiExiste(
-				new Reporte("Este reporte es de prueba" + System.lineSeparator(), accesoDatos), accesoDatos);
+				new Reporte("Este reporte es de prueba" + System.lineSeparator(), accesoDatos));
+
+		// Lo elimino para que funcione el assert automaticamente
+		registroVerificado.eliminar(file);
 
 		registroVerificado.export(file);
 
-		String resultadoEsperado = "Este reporte es de prueba" + System.lineSeparator();
+		registroVerificado.export(file);
+
+		String resultadoEsperado = "Este reporte es de prueba" + System.lineSeparator() + "Ya existe";
 
 		// EXERCISE
 		String resultado = registroVerificado.importar(file);
+
+		// Lo elimino para que funcione el assert automaticamente
+		registroVerificado.eliminar(file);
 
 		// VERIFY
 		assertEquals(resultadoEsperado, resultado);
@@ -46,12 +54,11 @@ class TestEjercicio2 {
 		PersistenciaRegistro accesoDatos = new PersistenciaRegistro();
 
 		Exportar registroSinVerificar = new SinVerificar(
-				new Reporte("Este reporte esta sobrescrito" + System.lineSeparator(), accesoDatos), accesoDatos);
+				new Reporte("Este reporte esta sobrescrito" + System.lineSeparator(), accesoDatos));
 
 		registroSinVerificar.export(file);
 
-		String resultadoEsperado = "Este reporte es de prueba" + System.lineSeparator()
-				+ "Este reporte esta sobrescrito" + System.lineSeparator();
+		String resultadoEsperado = "Este reporte esta sobrescrito" + System.lineSeparator();
 
 		// EXERCISE
 		String resultado = registroSinVerificar.importar(file);

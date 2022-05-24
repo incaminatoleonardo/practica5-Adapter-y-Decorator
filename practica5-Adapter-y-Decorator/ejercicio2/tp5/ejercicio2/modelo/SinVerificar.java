@@ -2,34 +2,33 @@ package tp5.ejercicio2.modelo;
 
 import java.io.File;
 
-public class SinVerificar implements Exportar {
+public class SinVerificar implements Exportar { // solo uno graba en disco --> que es reporte
 
-	private PersistenciaReporte persistencia;
 	private Reporte reporte;
 
-	public SinVerificar(Reporte reporte, PersistenciaReporte persistencia) {
-		this.persistencia = persistencia;
+	public SinVerificar(Reporte reporte) {
+
 		this.reporte = reporte;
 	}
 
 	@Override
-	public void export(File file) {
+	public void export(File file) { // verificar si existe y llamar siempre al exportar
+
+		if (file == null) {
+			throw new IllegalArgumentException("File es NULL; no puedo exportar...");
+		}
+
 		reporte.export(file);
-		// hace comprotamiento propio
-		persistencia.exportar(file, reporte.reporte());
 
 	}
 
-	@Override
 	public String importar(File file) {
-		return persistencia.importar(file);
+		return reporte.importar(file);
 
 	}
 
-	@Override
 	public void eliminar(File file) {
-		persistencia.eliminar(file);
-
+		reporte.eliminar(file);
 	}
 
 }
