@@ -28,7 +28,7 @@ public class MainPrueba {
 
 		// restEnDisco.guardar(null);
 
-		restJdbc.guardar(null);
+		restJdbc.guardar(null); // Preguntar lo de este null
 
 	}
 

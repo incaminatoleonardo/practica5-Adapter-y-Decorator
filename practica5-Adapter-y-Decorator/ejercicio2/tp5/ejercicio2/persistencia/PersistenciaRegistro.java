@@ -10,7 +10,8 @@ import tp5.ejercicio2.modelo.PersistenciaReporte;
 
 public class PersistenciaRegistro implements PersistenciaReporte {
 
-	private String pathCasa = "C:\\Users\\Frodo\\Desktop\\Uni\\Objetos 2\\tp5-ejercicio2-reporte.txt";
+	// private String pathCasa = "C:\\Users\\Frodo\\Desktop\\Uni\\Objetos
+	// 2\\tp5-ejercicio2-reporte.txt";
 
 	@Override
 	public void exportar(File file, String registro) {
@@ -38,14 +39,14 @@ public class PersistenciaRegistro implements PersistenciaReporte {
 
 	}
 
-	private void exportarArchivo(String registro) {
-		try {
-			Files.write(Paths.get(pathCasa), registro.getBytes(), StandardOpenOption.APPEND);
-		} catch (IOException e) {
-			throw new RuntimeException("No se pudo guardar en disco", e);
-		}
-
-	}
+//	private void exportarArchivo(String registro) {
+//		try {
+//			Files.write(Paths.get(pathCasa), registro.getBytes(), StandardOpenOption.APPEND);
+//		} catch (IOException e) {
+//			throw new RuntimeException("No se pudo guardar en disco", e);
+//		}
+//
+//	}
 
 	private void crearArchivo(File file) {
 		try {
