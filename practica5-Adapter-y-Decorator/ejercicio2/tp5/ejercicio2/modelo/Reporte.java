@@ -12,8 +12,7 @@ public class Reporte implements Exportar {
 		this.persistencia = percictencia;
 	}
 
-	public void export(File file) { // este solo exporta y es el que inyecta la persistencia- los otros dos
-									// verifican si es null y si existe-- SOLO ESO!!!
+	public void export(File file) {
 
 		persistencia.exportar(file, reporte);
 //		if (file == null) {
@@ -36,11 +35,6 @@ public class Reporte implements Exportar {
 	public String reporte() {
 
 		return reporte;
-	}
-
-	public void yaExiste() {
-		reporte = "Ya existe";
-
 	}
 
 }

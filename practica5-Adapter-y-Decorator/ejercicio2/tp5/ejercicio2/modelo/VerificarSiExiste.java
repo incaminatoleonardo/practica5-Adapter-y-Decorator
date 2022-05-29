@@ -14,7 +14,7 @@ public class VerificarSiExiste implements Exportar {
 	@Override
 	public void export(File file) {
 		if (file.exists()) {
-			reporte.yaExiste();
+			throw new IllegalArgumentException("El archivo ya existe...");
 		}
 
 		reporte.export(file);

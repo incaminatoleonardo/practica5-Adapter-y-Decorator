@@ -15,9 +15,11 @@ import tp5.ejercicio2.persistencia.PersistenciaRegistro;
 class TestEjercicio2 {
 
 	@Test
-	void testVerificando() {
+	void testVerificando() { // agarrar la exepcion en el catch y comparar con el "e" que viene por parametro
 
 		// SETUP
+
+		String resultado = "";
 
 		File file = new File("C:\\Users\\Frodo\\Desktop\\Uni\\Objetos 2\\tp5-ejercicio2-reporte.txt");
 		PersistenciaRegistro accesoDatos = new PersistenciaRegistro();
@@ -30,12 +32,15 @@ class TestEjercicio2 {
 
 		registroVerificado.export(file);
 
-		registroVerificado.export(file);
+		try {
+			registroVerificado.export(file);
+		} catch (Exception e) {
+			resultado = e.toString();
+		}
 
-		String resultadoEsperado = "Este reporte es de prueba" + System.lineSeparator() + "Ya existe";
+		String resultadoEsperado = "java.lang.IllegalArgumentException: El archivo ya existe...";
 
 		// EXERCISE
-		String resultado = registroVerificado.importar(file);
 
 		// Lo elimino para que funcione el assert automaticamente
 		registroVerificado.eliminar(file);

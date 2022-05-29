@@ -16,11 +16,17 @@ public class ArchivoTextoPlano implements FormaDeGuardado {
 	}
 
 	@Override
-	public void guardar(PersistenciaItemsServicio persistencia) {
-		persistencia = new EnDiscoPersistencia(file);
+	public String run() {
 
-		restCall.guardar(persistencia);
+		PersistenciaItemsServicio persistencia = new EnDiscoPersistencia(file);
+		persistencia.guardar(restCall.run());
 
+//		try (Response response = client.newCall(request).execute()) { agregar esto aca y en el otro observable
+//			persistencia.guardar(response.body().string());
+//		} catch (IOException e) {
+//			throw new RuntimeException(e);
+//		}
+		return restCall.run();
 	}
 
 }

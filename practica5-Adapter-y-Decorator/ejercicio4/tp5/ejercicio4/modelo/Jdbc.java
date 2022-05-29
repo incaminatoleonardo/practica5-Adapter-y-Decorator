@@ -13,11 +13,12 @@ public class Jdbc implements FormaDeGuardado {
 	}
 
 	@Override
-	public void guardar(PersistenciaItemsServicio persistencia) {
-		persistencia = new JdbcPersistencia();
+	public String run() {
 
-		restCall.guardar(persistencia);
+		PersistenciaItemsServicio persistencia = new JdbcPersistencia();
+		persistencia.guardar(restCall.run());
 
+		return restCall.run();
 	}
 
 }

@@ -29,18 +29,4 @@ public class RestCall implements FormaDeGuardado {
 		}
 	}
 
-	public void guardar(PersistenciaItemsServicio persistencia) {
-		OkHttpClient client = new OkHttpClient();
-		// Request request = new Request.Builder().url(this.url).build(); lo deje como
-		// esta abajo xq asi anda
-
-		okhttp3.Request request = new okhttp3.Request.Builder().url(this.url).build();
-
-		try (Response response = client.newCall(request).execute()) {
-			persistencia.guardar(response.body().string());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 }
